@@ -1,1 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <style type="text/css">
+    
+    * {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+color: white;
+    }
 
+    body {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 3px;
+        flex: 1 1 100vw;
+        background-color: rgb(0, 0, 0);
+    }
+
+
+    header, nav, aside,  footer {
+    background-color: rgba(178, 178, 178, 0.705);
+    display: flex;
+    margin: 3px;
+    }
+
+    header {
+        flex: 1 3 200vw;
+        height: 100px;
+        background-color: rgba(221, 221, 221, 0.705)
+    }
+
+    header #logo {
+        flex: 0 3 500px;
+        background-color: rgba(178, 178, 178, 0.705);
+        min-width: 100px;
+        min-height: 100px;
+        max-height: 100px;
+        max-width: 100px;
+}
+
+    main #fundo {
+        flex: 70%;
+        background-color: rgba(0, 0, 0, 0);
+        max-width: 100%;
+        max-height:100%;
+        height: auto;
+    }
+
+.banner {
+    width: 100%;
+    min-height: 3300px;
+
+    background-image: url("https://i.imgur.com/vlpIaGP.png");
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.conteudo {
+    text-align: center;
+    margin-top: 150px;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.conteudo h2, .localizacao {
+    font-size: 24px;
+    color: white;
+}
+
+.localizacao {
+    margin-top: 0;
+}
+
+.conteudo h1 {
+    font-size: 60px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.linha {
+    width: 100px;
+    height: 2px;
+    background: white;
+    margin: 20px auto;
+}
+
+.conteudo p {
+    font-size: 22px;
+    color: white;
+    line-height: 1.6;
+}
+
+    #openMenu, #closeMenu {
+        border: none;
+        background: none;
+        font-size: 30px;
+        font-weight: bold;
+        padding: 0px 5px 0px 5px;
+        cursor: pointer;
+        display: none;
+    }
+    nav {
+        flex: 1 1 100vw;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    nav a {
+        margin: 3%;
+        font-size: 20pt;
+    }
+
+    main {
+    flex: 100%;
+}
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    @media only screen and (max-width: 923px) {
+        .banner {
+            height: 90%;
+        }
+    
+        aside {
+            flex: 1 1 100vw;
+            height: 100px;
+        }
+
+        #logo {
+            min-width: 100px;
+            min-height: 100px;
+            max-height: 100px;
+            max-width: 100px;
+        }
+    }
+
+    @media only screen and (max-width: 717px) {
+        #openMenu, #closeMenu {
+            display: block;
+            color: rgb(255, 255, 255);
+        }
+
+        #openMenu {
+            margin-left: auto;
+        }
+
+        #closeMenu {
+            position: fixed;
+            right: 15px;
+            top: 15px;
+        }
+
+        #logo {
+            min-width: 100px;
+            min-height: 100px;
+            max-height: 100px;
+            max-width: 100px;
+        }
+
+        nav {
+            position: fixed;
+            z-index: 999;
+            flex-direction: column;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.849);
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            display: none;
+            opacity: 0;
+            transition: 0.3s;
+            color: rgb(0, 0, 0);
+        }
+
+        .banner{
+            min-height: 3300px;
+        }
+    }
+
+    </style>
+</head>
+<body>
+
+    <header>
+            <img id="logo"; src="https://i.imgur.com/cMRZ0eF.png" alt="logo">
+            
+        <button id="openMenu">&#9776</button>
+
+        <nav id="menu">
+        <button id="closeMenu">X</button>
+            <a id="Cultos" href="#">Cultos</a>
+        <a id="Loc" href="C:/Users/isaqu/Documents/VS/Igreja/Localização.html">Localização</a>
+        <a id="Cifras" href="#">Site de cifras</a>
+        <a id="Contato" href="#">Contato</a>
+    </nav>
+
+    </header>
+
+    <main class="banner">
+        <div class="conteudo">
+        <h2>Bem-vindo à</h2>
+        <h1>IGREJA DO NAZARENO</h1>
+
+        <h3 class="localizacao">Campo Grande, Cariacica</h3>
+
+        <div class="linha"></div>
+
+        <p>
+            Como uma comunidade global de fé, temos a missão de levar as boas novas
+            da vida em Jesus Cristo a pessoas em todos os lugares.
+        </p>
+    </div>
+        
+    </main>
+
+    <script type="text/javascript">
+
+        openMenu.addEventListener('click', () => {
+            menu.style.display = 'flex'
+
+            menu.style.right = (menu.offsetWidth * -1) + 'px'
+            
+            openMenu.style.display = 'none'
+
+            setTimeout(() => {
+            menu.style.opacity = '1'
+            
+            menu.style.right = '0'
+            }, 10)
+        })
+
+        closeMenu.addEventListener('click', () => {
+            menu.style.opacity = '0'
+            
+            menu.style.right = (menu.offsetWidth * -1) + 'px'
+
+            setTimeout(() => {
+            menu.removeAttribute('style')
+            
+            openMenu.removeAttribute('style')
+        }, 200)
+
+        })
+    </script>
+</body>
+</html>
